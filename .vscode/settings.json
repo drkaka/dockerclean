@@ -1,0 +1,43 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "go.buildOnSave": "workspace",
+    "go.lintOnSave": "workspace",
+    "go.lintTool": "revive",
+    "go.docsTool": "godoc",
+    "go.vetOnSave": "workspace",
+    "go.buildFlags": [],
+    "go.lintFlags": [],
+    "go.vetFlags": [],
+    "go.testFlags": ["-v", "-cover", "-race", "-count=1"],
+    "go.testTimeout": "1m",
+    "go.formatTool": "goimports",
+    "go.formatFlags": [],
+    "go.coverOnSave": false,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.inferGopath": true,
+    "go.gocodeAutoBuild": true,
+    "go.coverageDecorator": {
+        "type": "gutter"
+    },
+    "go.enableCodeLens": {
+        "references": false,
+        "runtest": true
+    },
+    "todohighlight.keywords": [
+        {
+            "text": "FIXME:",
+            "color": "red",
+            "border": "1px solid #aaa",
+            "backgroundColor": "rgba(0,0,0,.3)",
+        },
+        {
+            "text": "TODO:",
+            "color": "yellow",
+            "border": "1px solid #aaa",
+            "backgroundColor": "rgba(0,0,0,.3)",
+        }
+    ],
+    "todohighlight.include": ["**/*.go"],
+    "todohighlight.exclude": ["**/vendor/**"],
+    "todohighlight.toggleURI": true
+}
