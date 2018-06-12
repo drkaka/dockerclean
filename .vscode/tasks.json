@@ -20,14 +20,32 @@
             ],
             "windows": {
                 "args": [
-                    "-o", "clean.exe", "\"${workspaceRoot}\\main.go\"",
+                    "-o", "dockerclean.exe", "\"${workspaceRoot}\\main.go\"",
                 ]
             },
             "osx": {
                 "args": [
-                    "-o", "clean", "${workspaceRoot}/main.go",
+                    "-o", "dockerclean", "${workspaceRoot}/main.go",
                 ]
             }
+        },
+        {
+            "label": "Go test",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "type": "shell",
+            "command": "go",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "args": [
+                "test", "-v", "-cover", "-race", "-count=1", "./..."
+            ]
         }
     ]
 }
