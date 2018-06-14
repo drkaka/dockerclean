@@ -43,6 +43,22 @@ func main() {
 				return cmd.ListCommand(link, timeout)
 			},
 		},
+		{
+			Name:  "tags",
+			Usage: "list all tags for an image",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "image, i",
+					Usage: "the image to search",
+				},
+			},
+			Action: func(c *cli.Context) error {
+				link := c.GlobalString("link")
+				timeout := c.GlobalInt("timeout")
+				image := c.String("image")
+				return cmd.TagsCommand(link, image, timeout)
+			},
+		},
 	}
 
 	err := app.Run(os.Args)
