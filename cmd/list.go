@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"net/url"
 
 	"github.com/drkaka/dockerclean/req"
 )
@@ -16,7 +15,7 @@ type catalogs struct {
 // ListCommand the command to print all images
 func ListCommand(link string, timeout int) error {
 	httpClient := req.GetClient(timeout)
-	repos, err := listRequest(httpClient, link, timeout)
+	repos, err := listRequest(httpClient, link)
 	if err != nil {
 		return err
 	}
@@ -29,16 +28,14 @@ func ListCommand(link string, timeout int) error {
 	return nil
 }
 
-func listRequest(httpClient req.HTTPClient, link string, timeout int) ([]string, error) {
-	urlLink, err := url.Parse(link)
+func listRequest(httpClient req.HTTPClient, link string) ([]string, error) {
+	fullLink, err := getLink(link, catalogSubPath)
 	if err != nil {
 		return nil, err
 	}
-	// set the path
-	urlLink.Path = catalogSubPath
 
 	// create the GET request
-	catalogReq, err := http.NewRequest("GET", urlLink.String(), nil)
+	catalogReq, err := http.NewRequest("GET", fullLink, nil)
 	if err != nil {
 		return nil, fmt.Errorf("generate request error: %+v", err)
 	}

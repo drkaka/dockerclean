@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"net/url"
 
 	"github.com/drkaka/dockerclean/req"
 )
@@ -18,7 +17,7 @@ type tagsResult struct {
 // TagsCommand the command to print all tags for the given image
 func TagsCommand(link, image string, timeout int) error {
 	httpClient := req.GetClient(timeout)
-	repos, err := tagsRequest(httpClient, link, image, timeout)
+	repos, err := tagsRequest(httpClient, link, image)
 	if err != nil {
 		return err
 	}
@@ -32,16 +31,14 @@ func TagsCommand(link, image string, timeout int) error {
 }
 
 // tagsRequest send request to get all tags for the given image
-func tagsRequest(httpClient req.HTTPClient, link, image string, timeout int) ([]string, error) {
-	urlLink, err := url.Parse(link)
+func tagsRequest(httpClient req.HTTPClient, link, image string) ([]string, error) {
+	fullLink, err := getLink(link, tagsSubPath, image)
 	if err != nil {
 		return nil, err
 	}
-	// set the path
-	urlLink.Path = fmt.Sprintf(tagsSubPath, image)
 
 	// create the GET request
-	tagsReq, err := http.NewRequest("GET", urlLink.String(), nil)
+	tagsReq, err := http.NewRequest("GET", fullLink, nil)
 	if err != nil {
 		return nil, fmt.Errorf("generate request error: %+v", err)
 	}

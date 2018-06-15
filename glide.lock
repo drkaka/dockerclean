@@ -1,9 +1,35 @@
-hash: bd15bdde5642e3066d00bd2e0a3108530623ca8cd2dfcd5d12337520b5f3a8bd
-updated: 2018-06-09T17:36:30.541924+08:00
+hash: 9b0e08385f85b74b2cae640cb3d4a2964327afb97972d4bfe937d7c56fe1ddc6
+updated: 2018-06-15T09:54:49.981365+08:00
 imports:
+- name: github.com/goware/urlx
+  version: 06d8eeb3ce171b5617a3f8ef24451df26ca971ef
+- name: github.com/PuerkitoBio/purell
+  version: 975f53781597ed779763b7b65566e74c4004d8de
+- name: github.com/PuerkitoBio/urlesc
+  version: de5bf2ad457846296e2031421a34e2568e304e35
 - name: github.com/urfave/cli
   version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+- name: golang.org/x/net
+  version: db08ff08e8622530d9ed3a0e8ac279f6d4c02196
+  subpackages:
+  - idna
+- name: golang.org/x/text
+  version: 5c1cf69b5978e5a34c5f9ba09a83e56acc4b7877
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
+  - width
 testImports:
+- name: github.com/davecgh/go-spew
+  version: 8991bc29aa16c548c550c7ff78260e27b9ab7c73
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: 792786c7400a136282c1664665ae0a8db921c6c2
+  subpackages:
+  - difflib
 - name: github.com/stretchr/testify
   version: c679ae2cc0cb27ec3293fea7e254e47386f05d69
   subpackages:
