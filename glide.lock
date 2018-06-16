@@ -1,5 +1,5 @@
-hash: 9b0e08385f85b74b2cae640cb3d4a2964327afb97972d4bfe937d7c56fe1ddc6
-updated: 2018-06-15T09:54:49.981365+08:00
+hash: d6aa80039853392183b4f978a30543cf46c38a300fe681e943ee9cb201af5ff3
+updated: 2018-06-15T18:08:32.074573+08:00
 imports:
 - name: github.com/goware/urlx
   version: 06d8eeb3ce171b5617a3f8ef24451df26ca971ef
@@ -26,6 +26,8 @@ testImports:
   version: 8991bc29aa16c548c550c7ff78260e27b9ab7c73
   subpackages:
   - spew
+- name: github.com/mattn/goveralls
+  version: f387bc136f8b84259130eb48e2b9c28e8f7f25b2
 - name: github.com/pmezard/go-difflib
   version: 792786c7400a136282c1664665ae0a8db921c6c2
   subpackages:
@@ -34,3 +36,7 @@ testImports:
   version: c679ae2cc0cb27ec3293fea7e254e47386f05d69
   subpackages:
   - assert
+- name: golang.org/x/tools
+  version: c6269430a55499efa2e293ae66926175dc3af30e
+  subpackages:
+  - cover
