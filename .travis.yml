@@ -10,7 +10,7 @@ before_install:
     openssl aes-256-cbc 
     -K $encrypted_eb46e5b4becc_key 
     -iv $encrypted_eb46e5b4becc_iv 
-    -in ./travis/github_deploy_key.enc 
+    -in .travis/github_deploy_key.enc 
     -out github_deploy_key 
     -d
   - chmod 600 github_deploy_key
